@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Finder</title>
+    <link rel="stylesheet" href="./static/css/styles.css" />
+  </head>
+  <body>
+    <h3>Movie Finder</h3>
+
+    <input type="text" id="searchText" />
+    <button onclick="getMovies()">Search</button>
+
+    <div id="movies">
+      <!-- Acá es donde se va a cargar el resultado de la busqueda -->
+    </div>
+
+    <div id="movie">
+      <!-- Acá es donde se va a cargar la informacion de la pelicula -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./static/js/app.js"></script>
+  </body>
+</html>
