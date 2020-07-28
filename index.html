@@ -4,20 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Finder</title>
+    <!-- CSS Bootstrap 4.5 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./static/css/styles.css" />
   </head>
   <body>
-    <h3>Movie Finder</h3>
-
-    <input type="text" id="searchText" />
-    <button onclick="getMovies()">Search</button>
-
-    <div id="movies">
-      <!-- Acá es donde se va a cargar el resultado de la busqueda -->
+    <div class="container mb-3 mt-3">
+      <div class="jumbotron">
+        <h3 class="text-center">Movie Finder</h3>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="searchText"
+            placeholder="Search movie"
+            aria-label="Search movie"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+              onclick="getMovies()"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="movie">
-      <!-- Acá es donde se va a cargar la informacion de la pelicula -->
+    <div class="container">
+      <div class="row" id="movies">
+        <!-- Acá es donde se va a cargar el resultado de la busqueda -->
+      </div>
+
+      <div class="row" id="movie">
+        <!-- Acá es donde se va a cargar la informacion de la pelicula -->
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

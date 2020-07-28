@@ -12,10 +12,13 @@ function getMovies() {
       let output = "";
       movies.forEach((movie) => {
         output += `
+        <div class="col-md-3 mb-1">
+            <div class="well text-center">
               <img src="${movie.Poster}" width="150" height="200">
               <h5>${movie.Title}</h5>
               <button onclick="getMovie('${movie.imdbID}')">Ver Detalles</button>
-              <br>
+              </div>
+          </div>
           `;
       });
       document.getElementById("movies").innerHTML = output;
@@ -35,17 +38,23 @@ function getMovie(movieId) {
     .then((response) => {
       let movie = response.data;
       let output = `
-          <img src="${movie.Poster}" width="400" height="550">
-          <h2>${movie.Title}</h2>
-          <ul>
-          <li><strong>Publicado:</strong> ${movie.Released}</li>
-          <li><strong>Género:</strong> ${movie.Genre}</li>
-          <li><strong>Clasificación:</strong> ${movie.Rated}</li>
-          <li><strong>Rating IMDB:</strong> ${movie.imdbRating}</li>
-          <li><strong>Director:</strong> ${movie.Director}</li>
-          <li><strong>Actores:</strong> ${movie.Actors}</li>
-          <litext-justify"><strong>Resumen:</strong> ${movie.Plot}</li>
-          </ul>
+      <div class="row">
+        <div class="center col-md-4">
+          <img src="${movie.Poster}" class=" img-thumbnail" width="400" height="550">
+        </div>
+      <div class="col-md-8">
+        <h2>${movie.Title}</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Publicado:</strong> ${movie.Released}</li>
+          <li class="list-group-item"><strong>Género:</strong> ${movie.Genre}</li>
+          <li class="list-group-item"><strong>Clasificación:</strong> ${movie.Rated}</li>
+          <li class="list-group-item"><strong>Rating IMDB:</strong> ${movie.imdbRating}</li>
+          <li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
+          <li class="list-group-item"><strong>Actores:</strong> ${movie.Actors}</li>
+          <li class="list-group-item text-justify"><strong>Resumen:</strong> ${movie.Plot}</li>
+        </ul>
+        </div>
+      </div>
           <hr>
           <a href="https://imdb.com/title/${movie.imdbID}" target="_blank">Ver en IMDB</a>
           <a href="index.html">Regresar al inicio</a>
