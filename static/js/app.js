@@ -16,7 +16,7 @@ function getMovies() {
             <div class="well text-center">
               <img src="${movie.Poster}" width="150" height="200">
               <h5>${movie.Title}</h5>
-              <button onclick="getMovie('${movie.imdbID}')">Ver Detalles</button>
+              <button class="btn btn-outline-primary" onclick="getMovie('${movie.imdbID}')">Ver Detalles</button>
               </div>
           </div>
           `;
@@ -38,7 +38,7 @@ function getMovie(movieId) {
     .then((response) => {
       let movie = response.data;
       let output = `
-      <div class="row">
+      
         <div class="center col-md-4">
           <img src="${movie.Poster}" class=" img-thumbnail" width="400" height="550">
         </div>
@@ -54,10 +54,11 @@ function getMovie(movieId) {
           <li class="list-group-item text-justify"><strong>Resumen:</strong> ${movie.Plot}</li>
         </ul>
         </div>
-      </div>
-          <hr>
-          <a href="https://imdb.com/title/${movie.imdbID}" target="_blank">Ver en IMDB</a>
-          <a href="index.html">Regresar al inicio</a>
+        <hr>
+        <div class="container mt-3 mb-4">
+          <a class="btn btn-outline-info" href="https://imdb.com/title/${movie.imdbID}" target="_blank">Ver en IMDB</a>
+          <a class="btn btn-outline-secondary" href="index.html">Regresar al inicio</a>
+        </div>
           `;
       document.getElementById("movie").innerHTML = output;
     })
