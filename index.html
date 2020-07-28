@@ -33,13 +33,13 @@
           });
       }
 
-      // finción que muestra el detalle de cada pelicula
+      // función que muestra el detalle de cada pelicula
       function getMovie(movieId) {
         clean();
         let output = "";
 
         axios
-          .get("http://www.omdbapi.com?i=" + movieId + "&apikey=6cb19638")
+          .get("https://www.omdbapi.com?i=" + movieId + "&apikey=6cb19638")
           .then((response) => {
             let movie = response.data;
             let output = `
@@ -55,7 +55,7 @@
           <litext-justify"><strong>Resumen:</strong> ${movie.Plot}</li>
           </ul>
           <hr>
-          <a href="http://imdb.com/title/${movie.imdbID}" target="_blank">Ver en IMDB</a>
+          <a href="https://imdb.com/title/${movie.imdbID}" target="_blank">Ver en IMDB</a>
           <a href="index.html">Regresar al inicio</a>
           `;
             document.getElementById("movie").innerHTML = output;
